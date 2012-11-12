@@ -3,6 +3,8 @@ class Link < ActiveRecord::Base
 
   before_create :shortener
 
+  has_many :redirects
+
   private
 
   def shortener

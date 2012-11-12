@@ -4,6 +4,7 @@
   <tr>
     <th>Short url</th>
     <th>Original url</th>
+    <th>Times Visited</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,6 +14,7 @@
   <tr>
     <td><%= link.short_url %></td>
     <td><%= link.original_url %></td>
+    <td><%= link.redirects.count %></td>
     <td><%= link_to 'Show', link %></td>
     <td><%= link_to 'Edit', edit_link_path(link) %></td>
     <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,4 +1,6 @@
 UrlShortener::Application.routes.draw do
+  resources :redirects
+
   resources :links
 
   root to: 'links#index'
