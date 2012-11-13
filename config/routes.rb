@@ -2,9 +2,12 @@ UrlShortener::Application.routes.draw do
   resources :redirects
 
   resources :links
-
+  resources :users
+  resources :sessions
   root to: 'links#index'
 
+  match 'login' => 'sessions#new'
+  match 'signup' => 'users#new'
   match ':short_url' => 'links#show_url'
 
   # The priority is based upon order of creation:

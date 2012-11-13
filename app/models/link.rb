@@ -8,6 +8,8 @@ class Link < ActiveRecord::Base
 
   has_many :redirects
 
+  belongs_to :user
+
   private
 
   def shortener
