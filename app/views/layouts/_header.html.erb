@@ -1,3 +1,7 @@
 <% if current_user.present? %>
   <%= link_to "Logout", logout_path %>
+
+   <p> current user
+   <%= @current_user.email %>
+   </p>
 <% end %>
