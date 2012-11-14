@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  # GET /links
+  before_filter :authorize, :except => :show_url
   # GET /links.json
   def index
     @links = Link.all
@@ -70,15 +70,9 @@ class LinksController < ApplicationController
   end
 
   def show_url
-    @link = Link.find_by_short_url(params[:short_url])
-
-    @redirect = Redirect.new
-
-    @redirect.link = @link
-
-    @redirect.save
-
-    redirect_to "#{@link.original_url}"
+    link = Link.find_by_short_url(params[:short_url])
+    redirect = Redirect.create :link => link
+    redirect_to link.original_url
   end
 
   # DELETE /links/1

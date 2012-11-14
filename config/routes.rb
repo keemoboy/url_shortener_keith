@@ -8,7 +8,8 @@ UrlShortener::Application.routes.draw do
 
   match 'login' => 'sessions#new'
   match 'signup' => 'users#new'
-  match ':short_url' => 'links#show_url'
+  match 'logout' => 'sessions#destroy'
+  match ':short_url' => 'links#show_url' # THIS HAS TO BE THE LAST ROUTE
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -10,6 +10,7 @@ class Link < ActiveRecord::Base
 
   belongs_to :user
 
+
   private
 
   def shortener

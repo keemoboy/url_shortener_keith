@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    session.delete(:user_id)
     redirect_to root_url, :notice => "Logged out!"
   end
 
@@ -31,7 +31,7 @@ class SessionsController < ApplicationController
 
   def authenticated?
     @user = User.find_by_email params[:email]
-    if @user
+    if @user and @user.authenticate(params[:password])
       true
     else
       false
