@@ -2,7 +2,7 @@ class LinksController < ApplicationController
   before_filter :authorize, :except => :show_url
   # GET /links.json
   def index
-    @links = Link.all
+    @links = current_user.links
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,8 +40,9 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(params[:link])
-    @current_user.links.build(params[:id])
+    # @link = Link.new(params[:link])
+    # @link.user = current_user
+    @link = current_user.links.new(params[:link])
 
     respond_to do |format|
       if @link.save

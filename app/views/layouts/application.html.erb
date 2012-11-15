@@ -8,7 +8,9 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%= flash[:notice] %>
+    
+    <div style="color: red"><%= flash[:notice] %></div>
+    
     <%= yield %>
 
   </body>
